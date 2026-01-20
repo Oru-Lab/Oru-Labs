@@ -1,0 +1,361 @@
+    <!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="One Identity. One Wallet.">
+    <meta name="keywords" content="">
+    <meta name="robots" content="noodp">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <title>Sign in to ID.me - ID.me</title>
+    
+    <!-- Favicon links -->
+    <link rel="icon" type="image/png" href="/assets/icons/favicon/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" type="image/x-icon" href="/assets/icons/favicon/apple-icon-57x57.png" sizes="57x57">
+    <!-- Additional favicon sizes... -->
+    
+    <link rel="stylesheet" href="/assets/application.css" media="all">
+    
+    <style>
+        body {
+            transition: opacity ease-in 0.2s;
+        }
+        body[unresolved] {
+            opacity: 0;
+            display: block;
+            overflow: hidden;
+            position: relative;
+        }
+        .page-container {
+            position: relative;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 100%;
+            padding: 0 15px;
+            margin: 0 auto;
+        }
+        .content-container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .form-header {
+            padding: 20px 0;
+        }
+        .form-header-content {
+            display: flex;
+            justify-content: center;
+        }
+        .partner {
+            display: flex;
+            align-items: center;
+        }
+        .c_icon.m_idme img {
+            height: 40px;
+        }
+        .form-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-width: 400px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+        .form-header-access h1 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #172f55;
+        }
+        .alert {
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid transparent;
+            border-radius: 4px;
+        }
+        .alert-error {
+            color: #721c24;
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+        }
+        .alert-success {
+            color: #155724;
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+        }
+        .form-fields {
+            margin-bottom: 20px;
+        }
+        .field-group {
+            margin-bottom: 20px;
+        }
+        .field {
+            margin-bottom: 15px;
+        }
+        .field label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #333;
+        }
+        .field input[type="email"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        .field input[type="email"]:focus {
+            outline: none;
+            border-color: #172f55;
+        }
+        .field.checkbox {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+        }
+        .field.checkbox input[type="checkbox"] {
+            margin-right: 8px;
+        }
+        .field.checkbox label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .form-actions {
+            margin-bottom: 20px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: 600;
+            text-align: center;
+            text-decoration: none;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .btn-primary {
+            background-color: #172f55;
+            color: #ffffff;
+            width: 100%;
+        }
+        .btn-primary:hover {
+            background-color: #2b4369;
+        }
+        .form-content {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .form-content p {
+            margin: 0;
+        }
+        .form-content a {
+            color: #172f55;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .form-content a:hover {
+            text-decoration: underline;
+        }
+        .form-footer-message {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+        .footer {
+            padding: 20px 0;
+            border-top: 1px solid #eee;
+            margin-top: auto;
+        }
+        .footer__links {
+            text-align: center;
+        }
+        .footer__list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .footer__list-item {
+            display: inline-block;
+        }
+        .footer__link {
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .footer__link:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 10px;
+            }
+            .form-container {
+                padding: 20px 15px;
+            }
+            .footer__list {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container" data-role="page-container">
+        <div class="container">
+            <div class="content-container">
+                <form class="new_user" id="new_user" action="/session/identify" method="post" novalidate="novalidate">
+                    <div class="form-header">
+                        <div class="form-header-content" role="banner">
+                            <div class="partner">
+                                <div class="c_icon m_idme">
+                                    <img alt="ID.me" class="img-lightmode" src="https://api.id.me/assets/logos/idme-logo-1d96899e99d393974ec16fa17a820e78fca132bd8ea53e01f12bdc000baf674f.svg">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <main aria-labelledby="sr_page_title" class="form-container">
+                        <div class="form-header-access">
+                            <h1 id="sr_page_title">Sign in to ID.me</h1>
+                        </div>
+                        
+                        <!-- Error message -->
+                        <p class="alert alert-error" role="alert" style="display: block">
+                            You need to sign in or sign up before continuing.
+                        </p>
+                        
+                        <!-- Success message (hidden by default) -->
+                        <p class="alert alert-success" role="alert" style="display: none;"></p>
+                        
+                        <div class="form-fields">
+                            <div class="field-group">
+                                <div class="field text decomposed">
+                                    <label for="user_email">Email</label>
+                                    <input placeholder="Enter email address" required autocomplete="email" 
+                                           type="email" name="user[email]" id="user_email">
+                                    <span role="alert"></span>
+                                </div>
+                                
+                                <div class="field checkbox remember_me">
+                                    <input type="checkbox" name="remember_me" id="remember_me" value="true" 
+                                           aria-describedby="remember-me-tip">
+                                    <label for="remember_me">
+                                        <span>Remember me</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions decomposed">
+                            <input type="submit" name="commit" value="Continue" 
+                                   class="btn btn-primary" style="background-color: rgb(34, 98, 187);" data-clicked="false">
+                        </div>
+                        
+                        <div class="form-content">
+                            <p>
+                                New to ID.me?
+                                <a href="/registration/new">Create an account</a>
+                            </p>
+                        </div>
+                        
+                        <div class="form-footer-message">
+                            <p class="wide">Social media sign-in is no longer available. Please sign in with your email.</p>
+                        </div>
+                    </main>
+                </form>
+                
+                <footer class="footer">
+                    <nav aria-label="Footer" class="footer__links">
+                        <ul class="footer__list">
+                            <li class="footer__list-item">
+                                <a target="_blank" rel="noopener noreferrer" class="footer__link" 
+                                   title="What is ID.me? (opens in new tab)" 
+                                   href="https://www.id.me/about">What is ID.me?</a>
+                            </li>
+                            <li class="footer__list-item">
+                                <a target="_blank" rel="noopener noreferrer" class="footer__link" 
+                                   title="Terms of Service (opens in new tab)" 
+                                   href="https://www.id.me/terms">Terms of Service</a>
+                            </li>
+                            <li class="footer__list-item">
+                                <a target="_blank" rel="noopener noreferrer" class="footer__link" 
+                                   title="Privacy Policy (opens in new tab)" 
+                                   href="https://www.id.me/privacy">Privacy Policy</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Form validation
+            const form = document.getElementById('new_user');
+            const emailInput = document.getElementById('user_email');
+            const errorAlert = document.querySelector('.alert-error');
+            const successAlert = document.querySelector('.alert-success');
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Simple email validation
+                const email = emailInput.value.trim();
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                
+                if (!email) {
+                    showError('Please enter your email address');
+                    return;
+                }
+                
+                if (!emailRegex.test(email)) {
+                    showError('Please enter a valid email address');
+                    return;
+                }
+                
+                // Simulate successful submission
+                hideError();
+                showSuccess('Redirecting to verification...');
+                
+                // In a real application, you would submit the form here
+                setTimeout(() => {
+                    window.location.href = '/verify-email.html';
+                }, 1500);
+            });
+            
+            function showError(message) {
+                errorAlert.textContent = message;
+                errorAlert.style.display = 'block';
+                successAlert.style.display = 'none';
+                emailInput.focus();
+            }
+            
+            function hideError() {
+                errorAlert.style.display = 'none';
+            }
+            
+            function showSuccess(message) {
+                successAlert.textContent = message;
+                successAlert.style.display = 'block';
+                errorAlert.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

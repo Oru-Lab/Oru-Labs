@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oru Labs | Engineering the Bedrock</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --bg-dark: #0a0a0a;
+        --bg-light: #fafafa;
+      }
+      body {
+        font-family: 'Space Grotesk', sans-serif;
+        margin: 0;
+        overflow-x: hidden;
+        transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .mono {
+        font-family: 'JetBrains Mono', monospace;
+      }
+      .blueprint-grid {
+        background-image: linear-gradient(rgba(128, 128, 128, 0.1) 1px, transparent 1px),
+                          linear-gradient(90deg, rgba(128, 128, 128, 0.1) 1px, transparent 1px);
+        background-size: 50px 50px;
+      }
+      @keyframes rotate-gear {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      .animate-gear {
+        animation: rotate-gear 15s linear infinite;
+      }
+      .animate-gear-reverse {
+        animation: rotate-gear 25s linear infinite reverse;
+      }
+      @keyframes shimmer {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(100%); }
+      }
+      .animate-shimmer {
+        animation: shimmer 3s infinite linear;
+      }
+
+      /* Enhanced technical background animations */
+      @keyframes float-technical {
+        0% { transform: translate(0, 0) rotate(0deg); }
+        33% { transform: translate(15px, -15px) rotate(1deg); }
+        66% { transform: translate(-10px, 10px) rotate(-1deg); }
+        100% { transform: translate(0, 0) rotate(0deg); }
+      }
+      @keyframes technical-pulse {
+        0%, 100% { opacity: 0.1; stroke-dashoffset: 200; }
+        50% { opacity: 0.6; stroke-dashoffset: 0; }
+      }
+      @keyframes drift {
+        from { stroke-dashoffset: 0; }
+        to { stroke-dashoffset: 100; }
+      }
+      .animate-float-technical {
+        animation: float-technical 20s ease-in-out infinite;
+      }
+      .animate-technical-pulse {
+        animation: technical-pulse 8s ease-in-out infinite;
+      }
+      
+      body.loading {
+        overflow: hidden;
+      }
+      ::-webkit-scrollbar {
+        width: 4px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: currentColor;
+        opacity: 0.2;
+      }
+    </style>
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://esm.sh/react@^19.2.3",
+        "react/": "https://esm.sh/react@^19.2.3/",
+        "react-router-dom": "https://esm.sh/react-router-dom@^7.12.0",
+        "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+      }
+    }
+    </script>
+  <link rel="stylesheet" href="/index.css">
+</head>
+  <body class="loading">
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
