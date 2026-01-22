@@ -19,7 +19,7 @@ export const Contact: React.FC = () => {
               </div>
               <div>
                 <h4 className="text-xs uppercase tracking-widest font-bold text-gray-500 mb-2">Email</h4>
-                <p className="text-lg">hello@orulabs.dev</p>
+                <p className="text-lg">helloorulabs@gmail.com</p>
               </div>
               <div>
                 <h4 className="text-xs uppercase tracking-widest font-bold text-gray-500 mb-2">Network</h4>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { Logo } from './Logo';
+import { link } from 'fs';
 
 export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { pathname } = useLocation();
@@ -10,6 +11,24 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
   const [theme, setTheme] = useState<'dark' | 'light'>('dark');
   const [loading, setLoading] = useState(true);
 
+  const socials = [
+    {
+      name: 'GitHub',
+      link: 'https://github.com/Oru-Lab',
+    },
+    {
+      name: 'Twitter',
+      link: 'https://twitter.com/Orulabs',
+    },
+    {
+      name: 'LinkedIn',
+      link: '',
+    },
+    {
+      name: 'Discord',
+      link: 'https://discord.gg/orulabs',
+    },
+  ]; 
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
@@ -178,10 +197,10 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
                   "Building our own bedrock instead of building on someone else's broken floor."
                 </p>
                 <div className="flex flex-wrap gap-x-16 gap-y-8">
-                  {['GitHub', 'Twitter', 'LinkedIn', 'Discord'].map(social => (
-                    <a key={social} href="#" className="text-[9px] uppercase tracking-[0.6em] font-black hover:italic opacity-40 hover:opacity-100 transition-all group flex items-center gap-2">
+                  {socials.map(social => (
+                    <a key={social.name} href={social.link} className="text-[9px] uppercase tracking-[0.6em] font-black hover:italic opacity-40 hover:opacity-100 transition-all group flex items-center gap-2">
                       <span className="w-2 h-2 bg-current opacity-0 group-hover:opacity-100 transition-opacity rounded-full"></span>
-                      {social}
+                      {social.name}
                     </a>
                   ))}
                 </div>
