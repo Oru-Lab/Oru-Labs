@@ -26,7 +26,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
     },
     {
       name: 'Discord',
-      link: 'https://discord.gg/orulabs',
+      link: '',
     },
   ]; 
   useEffect(() => {
