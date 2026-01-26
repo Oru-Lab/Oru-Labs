@@ -3,7 +3,7 @@ import React from 'react';
 
 export const Tools: React.FC = () => {
   const categories = [
-    { name: "Blockchain Integration", count: "04" },
+    { name: "Blockchain Integration", count: "01" },
     { name: "AI Utilities", count: "02" },
     { name: "IoT Bedrock", count: "03" },
     { name: "Web Infrastructure", count: "06" }
@@ -11,28 +11,32 @@ export const Tools: React.FC = () => {
 
   const tools = [
     { 
-      name: "Oru-Sync", 
+      name: "Oru-Lens", 
       tag: "Blockchain", 
-      desc: "Automated smart contract ABI to Frontend mapping. Loads functions, events, and types instantly from a contract address.",
-      status: "Stable" 
+      desc: "Automated smart contract ABI to Frontend mapping. Loads functions, events, and types instantly from a contract address and ABI.",
+      status: "Stable",
+      repo: "https://github.com/Oru-Lab/oru-lens"
     },
     { 
       name: "Neural-Gate", 
       tag: "AI", 
       desc: "Lightweight inference proxy for edge computing. Optimizes model calls and handles local caching strategies.",
-      status: "Beta" 
+      status: "Beta",
+      repo: "https://github.com/Oru-Lab/neural-gate"
     },
     { 
       name: "Grid-Link", 
       tag: "IoT", 
       desc: "Ultra-low latency protocol for device orchestration. Built for high-density sensor environments.",
-      status: "Research" 
+      status: "Research",
+      repo: "https://github.com/Oru-Lab/grid-link"
     },
     { 
       name: "Bedrock-UI", 
       tag: "Web", 
       desc: "A set of unstyled, accessible primitives focused on developer dashboards and industrial applications.",
-      status: "Stable" 
+      status: "Stable",
+      repo: "https://github.com/Oru-Lab/bedrock-ui"
     },
   ];
 
@@ -60,7 +64,7 @@ export const Tools: React.FC = () => {
                 </div>
                 <h3 className="text-4xl text-gray-400 font-bold mb-6 tracking-tight group-hover:translate-x-2 transition-transform">{tool.name}</h3>
                 <p className="text-gray-500 leading-relaxed mb-10 max-w-sm">{tool.desc}</p>
-                <a href="#" className="inline-flex items-center gap-3 text-[10px] uppercase tracking-[0.2em] font-bold text-gray-500 transition-colors">
+                <a href={tool.repo} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 text-[10px] uppercase tracking-[0.2em] font-bold text-gray-500 transition-colors">
                   View Repository
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                 </a>

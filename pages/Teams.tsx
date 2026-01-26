@@ -1,6 +1,46 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+interface TeamMember {
+  id: string;
+  name: string;
+  role: string;
+  title: string;
+  description: string;
+  image: string;
+  badge: string;
+}
+
+const teamMembers: TeamMember[] = [
+  {
+    id: 'nworah',
+    name: 'Nworah C. Gabriel',
+    role: 'Visionary & Engineering Lead',
+    title: 'Core Architect',
+    description: 'Personally recruiting a seasoned team of developers who agree to a clear charter of quality and commitment.',
+    image: '/Saggio.png',
+    badge: 'Core Architect',
+  },
+  {
+    id: 'karlagod',
+    name: 'KarlaGod',
+    role: 'Business Developer on web3',
+    title: 'Advisor',
+    description: 'Founder Bitsave Protocol, building and helping businesses grow onchain and offchain',
+    image: '/KarlaGod.jpeg',
+    badge: 'Advisor',
+  },
+  {
+    id: 'BorderlessDev',
+    name: 'Borderless Dev',
+    role: 'Web3 Community',
+    title: 'Web3 Community',
+    description: 'Borderless is a public-good builder institution that turns first-time builders into sustainable founders',
+    image: '/BorderlessDev.jpg',
+    badge: 'Parent Community',
+  },
+];
+
 export const Teams: React.FC = () => {
   return (
     <div className="flex-grow py-32">
@@ -14,19 +54,22 @@ export const Teams: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-24">
-          <div className="group">
-            <div className="aspect-[4/5] border border-current/10 bg-current/[0.02] mb-12 overflow-hidden relative">
-              <img src="/Saggio.jpeg" className="w-full h-full object-cover opacity-90 group-hover:opacity-60 transition-opacity grayscale" alt="Founder" />
-              <div className="absolute top-10 left-10">
-                <span className="px-5 py-2  dark:border-current/50 text-[10px] font-black uppercase tracking-[0.6em] bg-white/90 dark:bg-black/80 backdrop-blur-md text-black dark:text-white">
-                  Core Architect
-                </span>
+          {teamMembers.map((member) => (
+            <div key={member.id} className="group">
+              <div className="aspect-[4/5] border border-current/10 bg-current/[0.02] mb-12 overflow-hidden relative">
+                <img src={member.image} className="w-full h-full object-cover opacity-90 group-hover:opacity-60 transition-opacity grayscale" alt={member.name} />
+                <div className="absolute top-10 left-10">
+                  <span className="px-5 py-2  dark:border-current/50 text-[10px] font-black uppercase tracking-[0.6em] bg-white/90 dark:bg-black/80 backdrop-blur-md text-black dark:text-white">
+                    {member.badge}
+                  </span>
+                </div>
               </div>
+              <h3 className="text-4xl font-black uppercase tracking-tight mb-4 group-hover:italic transition-all">{member.name}</h3>
+              <p className="text-[11px] uppercase tracking-[0.6em] opacity-40 font-black mb-8 italic">{member.role}</p>
+              <p className="text-base opacity-50 leading-relaxed font-medium">{member.description}</p>
             </div>
-            <h3 className="text-4xl font-black uppercase tracking-tight mb-4 group-hover:italic transition-all">Nworah C. Gabriel</h3>
-            <p className="text-[11px] uppercase tracking-[0.6em] opacity-40 font-black mb-8 italic">Visionary & Engineering Lead</p>
-            <p className="text-base opacity-50 leading-relaxed font-medium">Personally recruiting a seasoned team of developers who agree to a clear charter of quality and commitment.</p>
-          </div>
+          ))}
+
 
           <div className="border border-current/10 p-20 flex flex-col justify-center items-center text-center group bg-current/[0.01] hover:bg-current/[0.04] transition-all relative overflow-hidden">
             <div className="absolute inset-0 blueprint-grid opacity-10"></div>
