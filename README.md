@@ -1,7 +1,7 @@
 # Oru Labs: Engineering the Bedrock
 
 ## 🚀 Introduction
-Oru Labs is an advanced engineering platform dedicated to building the foundational infrastructure for smart contract interaction and blockchain development. The platform serves as "Bedrock" for the next generation of decentralized applications, providing sophisticated tools that make complex blockchain operations accessible and efficient for developers.
+Ọrụ Labs is an advanced engineering platform that builds high-quality, open-source tools for Blockchain, AI, and IoT ecosystems. The platform serves as a foundation for the next generation of centralized and decentralized applications, providing tools that make complex operations accessible and efficient for developers.
 
 ![Oru Labs](https://img.shields.io/badge/Platform-Blockchain_Infrastructure-blue)
 ![Status](https://img.shields.io/badge/Status-Syncing_Structural_Bedrock-green)

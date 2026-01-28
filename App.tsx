@@ -58,7 +58,7 @@ const AnimatedRoutes = () => {
 const App: React.FC = () => {
   return (
     <Router>
-      <ScrollToTop />y
+      <ScrollToTop />
       <Layout>
         <AnimatedRoutes />
       </Layout>
